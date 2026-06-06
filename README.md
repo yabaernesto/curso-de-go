@@ -19,3 +19,53 @@ Em Go, tudo que começa com a letra maiúscula é exportável (e é possível ac
 Se a letra for minúscula, ela não é exportável é apenas visível ao seu módulo.
 
 ## Variáveis e constantes
+
+Em Go existem duas maneiras de criar variáveis, e essas duas maneiras têm variações.
+A primeira forma é colocar a palavra reservada "var" o nome da variável e depois o tipo e a sua expressão:
+
+```go
+var info string
+var texto string = "ola"
+var idade int = 0
+```
+
+Quando o tipo não é passado, ela sumi o tipo do valor da variável:
+
+```go
+var texto = "Yaba"
+var idade = 25
+```
+
+Go tem um mecanismo de inicialização de variável quando ás variáveis não são inicializadas logo no inicio.
+
+```go
+var info string // info vai receber string vazia ""
+var idade int // idade vai receber 0
+var casado bool // casado vai receber false
+```
+
+Declaração de variável curta/short:
+
+```go
+info := "alguma coisa informativa"
+idade := 25
+casado := false
+```
+
+### Constantes
+
+Valores não modificados após a declaração
+
+```go
+package main
+
+import "fmt"
+
+const nome string = "Yaba"
+
+func main() {
+  fmt.Println(nome)
+}
+```
+
+---
