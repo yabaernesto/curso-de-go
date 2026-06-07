@@ -100,3 +100,66 @@ func main() {
   fmt.Println("Idade: ", idade)
 }
 ```
+
+#### float
+
+- float8, float16, float32 e float64 eles são diferentes para realizar operações. Para realizar operações matemáticas, eles precisam ter a mesma quantidade de bits, caso contrário irá dar erro, exemplo abaixo:
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+  var numeroOne float64 = 10.5
+  var numeroTwo float64 = 10.5
+  var operacao = numeroOne / numeroTwo
+
+  fmt.Println("Resultado: ", operacao)
+}
+```
+
+#### bool
+
+- O tipo bool (booleanos) é usado para representar valores lógicos, ajudam a controlar fluxos no código. O valor inicial é false.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+  var maior bool = 10 > 5
+  var menor bool = 10 < 5
+
+  fmt.Println("10 é maior que 5?: ", maior)
+  fmt.Println("10 é menor que 5?: ", menor)
+}
+```
+
+#### string
+
+- strings (textos), existem um pacote chamado strings, que permite realizar varias operações em textos
+
+Concatenar: juntar um texto com outro.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+  var hello string = "ola, mundo"
+  var question string = "Como vai?"
+
+  // concatenação
+  var meet = hello + question
+  fmt.Println(meet)
+  // tornar o texto em maiúsculas
+  fmt.Println(strings.ToUpper(meet))
+  // buscar uma palavra, retorna true/false
+  fmt.Println(strings.Contains(meet, "mundo"))
+}
+```
+
+---
