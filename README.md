@@ -260,6 +260,8 @@ func main() {
 
 ### Fluxos de controles
 
+#### if e else
+
 - if e else, expressões para avaliar se uma determinada condição é verdadeira ou false, e dependendo do resultado da condição, é feito uma operação.
 
 ```go
@@ -322,6 +324,37 @@ func main() {
 	// value (valor do map) e ok (se ele existe ou não) são os retornos do acesso de uma chave em um map
 	if value, ok := players["yaba"]; ok {
 		fmt.Println("pontos:", value, ok)
+	}
+}
+```
+
+#### switch case
+
+- É uma forma de lidar com condicionais de uma forma mais legível, para evitar vários if else aninhados
+
+Verificar quando é sábado:
+
+```go
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	fmt.Println("Quando é sábdo?")
+	today := time.Now().Weekday()
+
+	switch time.Saturday {
+	case today + 0:
+		fmt.Println("é hoje")
+	case today + 1:
+		fmt.Println("é amnhã")
+	case today + 2:
+		fmt.Println("é em dois dias")
+	default:
+		fmt.Println("Tá longe ainda...")
 	}
 }
 ```
