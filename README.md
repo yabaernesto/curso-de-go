@@ -438,5 +438,9 @@ func main() {
 	for {
 		fmt.Println("long-running programs")
 	}
+
+  for true {
+    // código
+  }
 }
 ```
