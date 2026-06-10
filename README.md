@@ -257,3 +257,71 @@ func main() {
   fmt.Println(pessoas) // output: ernesto
 }
 ```
+
+### Fluxos de controles
+
+- if e else, expressões para avaliar se uma determinada condição é verdadeira ou false, e dependendo do resultado da condição, é feito uma operação.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	nota := 75
+
+	if nota >= 90 {
+		fmt.Println("Aprovado, aluno destacado!")
+	} else if nota >= 70 {
+		fmt.Println("Aprovado, aluno destacado!")
+	} else {
+		fmt.Println("Reprovado!")
+	}
+}
+```
+
+- Declaração de uma variável em uma expressão de um if (forma curta de atribuição de valor). É muito usado quando se está a verificar se algo existe ou se o erro é diferente de New, e a variável declarada na expressão de verificação, só fica disponível no escopo local da condição.
+
+```go
+package main
+
+import (
+	"errors"
+	"fmt"
+)
+
+func main() {
+	// declaração curta. Atribuição de valor (função thisIsAnError) e verificar se ele é diferente de nil
+	if err := thisIsAnError(); err != nil {
+		fmt.Println(err.Error())
+	}
+}
+
+// função que retorna um erro
+func thisIsAnError() error {
+	// criar um error handler
+	return errors.New("Isto é um erro!")
+}
+```
+
+- Por padrão o map quando se tenta acessar uma chave, ele retorna ou o valor ou o segundo item que diz se ele existe ou não (verdadeiro ou não).
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	players := map[string]int{
+		"yaba": 25,
+	}
+
+	// verificar se um jogador existe, caso sim, print quantos pontos tem.
+	// value (valor do map) e ok (se ele existe ou não) são os retornos do acesso de uma chave em um map
+	if value, ok := players["yaba"]; ok {
+		fmt.Println("pontos:", value, ok)
+	}
+}
+```
