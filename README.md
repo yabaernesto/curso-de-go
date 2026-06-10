@@ -163,3 +163,97 @@ func main() {
 ```
 
 ---
+
+### Tipos compostos
+
+#### Array
+
+É uma estrutura de dados que têm um tamanho fixo (é imutável),
+e funciona como uma lista para armazenar itens do mesmo tipo, onde os itens são indexados.
+Ás operações mais comum são ás de inserções, leitura, remoção e divisão de dados.
+
+- No Array é necessário mapear um índice para atribuir valor.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var gavetas [2]string;
+  gavetas[0] = "Copos"
+  gavetas[1] = "Panos"
+
+  fmt.Println(gavetas[0], gavetas[1])
+}
+```
+
+#### Slices
+
+Slices têm tamanhos flexíveis, são espaços armazenados na memória para armazenar itens do mesmo tipo,
+mas diferente de _Array_ o tamanho pode aumentar ou diminuir conforme a necessidade.
+No Slice ás operações também são de inserções, leitura, remoção e divisão de dados.
+
+- No Slice não é necessário mapear um índice para atribuir valor. Existe uma função que se encarrega de adicionar valores e aumentar a capacidade do Slice, e pode-se adicionar mais de um valor desde que seja do mesmo tipo de dado.
+
+- Para se acessar os valores do Slice, acessa-se pelos índice. O mais indicado é verificar primeiro o tamanho do Slice antes de ser acessado.
+
+- Para se dividir um Slice, é necessário mapear o índice inicial e o índice final, e eles são separados por dois pontos ":", por padrão o último índice é subtraído por 1 "[x:x-1]", no último índice é sempre o tamanho-1.
+
+- Na divisão de Slice, quando o primeiro índice não é passado considera-se que o índice é "0" [:2]. E se no último índice não for passado, ele considera o tamanho total do Slice -1, que dá o último índice do Slice "[0:]".
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var gavetas []string;
+  // append é a função responsável por adicionar valores
+  gavetas[] = append(gavetas, "copos", "panos", "pratos")
+
+  fmt.Println(gavetas)
+  // ver tamanho da estrutura Slice
+  fmt.Println(len(gavetas))
+  fmt.Println(gavetas[0], gavetas[1])
+  // dividir um Slice, do índice 1 até o 2 [x:x-1]
+  fmt.Println(gavetas[1:2])
+  // primeiro índice é 0
+  fmt.Println(gavetas[:2])
+  // ultimo índice
+  fmt.Println(gavetas[2:])
+  // pegar apenas até o índice 2
+  gavetas = gavetas[:2]
+  fmt.Println(gavetas)
+}
+```
+
+#### Map
+
+- São estruturas chave valor, no qual a chave tem um tipo e o valor também. Eles ajudam por ser uma estrutura de acesso e inserção rápida, dado que a chave sempre tem que ser única.
+
+- Caso o valor no map não existir, será retornado 0.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var pessoas = map[string]int{}
+  pessoas["yaba"] = 25
+  pessoas["ernesto"] = 25
+
+  fmt.Println(pessoas["yaba"]) // output: 25
+
+  if idade, ok := pessoas["yaba"]; ok {
+    fmt.Println("Pessoa existe no map", idade, ok)
+  } else {
+    fmt.Println("Pessoa não existe no map")
+  }
+
+  // deletando um map
+  delete(pessoas, "yaba")
+  fmt.Println(pessoas) // output: ernesto
+}
+```
