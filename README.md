@@ -358,3 +358,85 @@ func main() {
 	}
 }
 ```
+
+#### for
+
+- É uma maneira de fazer um loop em uma determinada estrutura de dados ou pra criar uma regra (instrução) no código/programa. Ás suas características é que o primeiro elemento é uma inicialização, o segundo é uma expressão que enquanto for verdadeira o loop vai continuar, o terceiro é a iteração (é o processo de repetir um bloco de código ou um conjunto de instruções).
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	sum := 0
+  // for
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+		sum += i
+	}
+
+	fmt.Println("Soma:", sum)
+}
+```
+
+- Em Go, o for também tem o comportamento de while
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	sum := 2
+	// for com comportamento de loop while
+	for sum < 20 {
+		sum += 2
+		fmt.Println(sum)
+	}
+
+	fmt.Println("Soma:", sum)
+}
+```
+
+- For sobre Slices
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	nums := []int{1, 2, 3, 4, 5}
+
+	for i := 0; i < len(nums); i++ {
+		// acessar valor do Slice, o i é o responsável por acessar os índices
+		fmt.Println(nums[i])
+	}
+}
+```
+
+- For infinito. Existem programas que rodam de forma infinita, são chamados de **_long-running programs_** (processos de longa duração) ou **_daemons_** (em servidores Linux) e "serviços" (no Windows). Eles são projetados para nunca terminar a menos que sejam interrompidos manualmente ou por falhas, aguardando continuamente por eventos, requisições ou agendamentos.
+
+- Exemplos comuns incluem servidores web, bancos de dados, bots de chat, coletores de dados (crawlers) e sistemas de automação.
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	// sem nenhuma expressão para servir como condicional, cria-se um loop infinito
+	for {
+		fmt.Println("long-running programs")
+	}
+}
+```
