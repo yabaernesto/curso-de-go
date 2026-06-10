@@ -444,3 +444,104 @@ func main() {
   }
 }
 ```
+
+#### range
+
+- É uma estrutura de loop. Facilita a criação de loops, especialmente com estruturas de dados como slices e maps. Com range, conseguimos acessar chaves e valores sem a necessidade de manipular índices manualmente. range dá a possibilidade de acessar elementos em um slice ou iterar sobre um map.
+
+- O range retorna a chave e valor da estrutura que se está a iterar.
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	nums := []int{5, 4, 3, 2, 1}
+	for key, value := range nums {
+		fmt.Println(key, value)
+	}
+}
+```
+
+- Slice de string
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	nums := []string{"yaba", "samuel", "manuel", "ernesto"}
+	for key, value := range nums {
+		fmt.Println(key, value)
+	}
+}
+```
+
+- Iterando map com range
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	users := map[string]string{
+		"nome":  "yaba",
+		"idade": "25",
+	}
+
+	for key, value := range users {
+		fmt.Println(key, value)
+	}
+}
+```
+
+- Se for necessário apenas um valor entre key ou value no range, basta colocar um underline (é forma de ocultar do compilador para não colocar ele na memória, dizer que não será usado):
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	users := map[string]string{
+		"nome":  "yaba",
+		"idade": "25",
+	}
+
+  // pegar apenas o value
+	for _, value := range users {
+		fmt.Println(value)
+	}
+}
+```
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	users := map[string]string{
+		"nome":  "yaba",
+		"idade": "25",
+	}
+
+  // pegar apenas a key
+	for key, _ := range users {
+		fmt.Println(key)
+	}
+}
+```
