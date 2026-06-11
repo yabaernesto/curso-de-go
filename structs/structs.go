@@ -41,6 +41,7 @@ func Estrutura() {
 		Email:   "maria@gmail.com",
 	}
 
+	client1.Endreco.Rua = "Rua C"
 	client2.Email = "maria@outlook.com"
 
 	fmt.Println(client1)
