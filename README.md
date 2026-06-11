@@ -605,3 +605,28 @@ func Estrutura() {
 
 - É possível usar structs dentro de structs
   <img src="./.github/workflows/structs.png" />
+
+### Funções/func
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	response := Soma(10, 15)
+
+	fmt.Println("Soma: ", response)
+
+  multiplica := func (x int) int {
+    return x * 2
+  }
+
+  resultado := multiplica(2)
+  fmt.Println("Multiplicação", resultado)
+}
+
+func Soma(a, b int) int {
+	return a + b
+}
+```
