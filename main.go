@@ -1,13 +1,9 @@
 package main
 
 import (
-	"fmt"
-
-	"github.com/yabaernesto/curso-go/meet"
+	"github.com/yabaernesto/curso-go/structs"
 )
 
 func main() {
-	fmt.Println("start...")
-	meet.SayHello()
-	meet.Say("Yaba Ernesto")
+	structs.Estrutura()
 }

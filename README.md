@@ -4,7 +4,7 @@ Go é uma linguagem criada para resolver problemas de concorrência.
 
 ### Comandos
 
-- Inicializar um módulo go: go mod init nomeDoModulo
+- Inicializar um módulo go: go mod init nome do modulo
 - Rodar main: go run main.go
 - Bundle do pacote: go bundle -o nome do bundle
 
@@ -545,3 +545,63 @@ func main() {
 	}
 }
 ```
+
+### Structs
+
+- É a maneira com que criamos e compomos tipos no Go, cria-se estruturas através de struct. Ela funciona como se fosse uma classe.Structs são usados para criar um agrupamento de dados de informações que serão usadas para trafegar no código.
+
+**_Arquivo main.go_**
+
+```go
+package main
+
+import (
+	"github.com/yabaernesto/curso-go/structs"
+)
+
+func main() {
+	structs.Estrutura()
+}
+```
+
+**_Arquivo struct.go_**
+
+```go
+package structs
+
+import (
+	"fmt"
+)
+
+type Client struct {
+	Nome    string
+	Idade   int
+	Endreco string
+	Email   string
+}
+
+// funcao publica
+func Estrutura() {
+	client1 := Client{
+		Nome:    "João",
+		Idade:   30,
+		Endreco: "Rua A, 123",
+		Email:   "joao@email.com",
+	}
+
+	client2 := Client{
+		Nome:    "Maria",
+		Idade:   25,
+		Endreco: "Rua B, 456",
+		Email:   "maria@gmail.com",
+	}
+
+  client2.Email = "maria@outlook.com"
+
+	fmt.Println(client1)
+	fmt.Println(client2)
+}
+```
+
+- É possível usar structs dentro de structs
+  <img src="./.github/workflows/structs.png" />
