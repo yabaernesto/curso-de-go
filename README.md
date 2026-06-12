@@ -630,3 +630,89 @@ func Soma(a, b int) int {
 	return a + b
 }
 ```
+
+### Métodos
+
+- Métodos estão extremamente relacionados a structs. Em Go, métodos são funções amarradas a structs
+
+```go
+package main
+
+import "fmt"
+
+type Pessoa struct {
+	Nome string
+	Idade int
+}
+
+// metodo. Pessoa recebe o metodo Apresentar, o "p" pode ser qualquer coisa
+func (p Pessoa) Apresentar() {
+	fmt.Printf("Olá, meu nome é %s e tenho %d anos.", p.Nome, p.Idade)
+}
+
+func main() {
+	// metodo
+	p1 := methods.Pessoa{Nome: "Yaba", Idade: 25}
+  p2 := methods.Pessoa{Nome: "Ernesto", Idade: 25}
+	p1.Apresentar()
+  p2.Apresentar()
+}
+```
+
+- Método faz cópia
+
+```Go
+package main
+
+import "fmt"
+
+type Pessoa struct {
+	Nome string
+	Idade int
+}
+
+// metodo. Pessoa recebe o metodo Apresentar, o "p" pode ser qualquer coisa
+func (p Pessoa) Apresentar() {
+  // p é uma cópia, para receber o valor original precisa ter ponteiro. O método está a modificar o valor por cópia
+  p.Nome = "Samuel"
+	fmt.Printf("Olá, meu nome é %s e tenho %d anos.\n", p.Nome, p.Idade)
+}
+
+func main() {
+	// metodo
+	p1 := methods.Pessoa{Nome: "Yaba", Idade: 25}
+  // output nome: Samuel
+  p1.Apresentar()
+  // output: Yaba
+  fmt.Println(p1.Nome)
+}
+```
+
+- Método com Ponteiro (passar por referência)
+
+```Go
+package main
+
+import "fmt"
+
+type Pessoa struct {
+	Nome string
+	Idade int
+}
+
+// método. Pessoa recebe o metodo Apresentar, o "p" pode ser qualquer coisa. O método está a modificar o valor por referência
+func (p *Pessoa) Apresentar() {
+  // p é uma cópia, para receber o valor original precisa ter ponteiro
+  p.Nome = "Samuel"
+	fmt.Printf("Olá, meu nome é %s e tenho %d anos.\n", p.Nome, p.Idade)
+}
+
+func main() {
+	// metodo. O ponteiro irá modificar o valor original, logo Nome não será Yaba mas sim Samuel
+	p1 := methods.Pessoa{Nome: "Yaba", Idade: 25}
+  // output nome: Samuel
+  p1.Apresentar()
+  // output: Yaba
+  fmt.Println(p1.Nome)
+}
+```
