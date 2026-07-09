@@ -716,3 +716,39 @@ func main() {
   fmt.Println(p1.Nome)
 }
 ```
+
+## Ponteiros / Pointers
+
+- Um ponteiro é uma variável que armazena um endereço de memória.
+- Um ponteiro é uma variável cujo valor é um endereço de memória.
+
+Um ponteiro também ocupa espaço na memória. Ele é uma variável como qualquer outra, mas em vez de guardar um número (10) ou uma string ("Olá"), ele guarda um endereço.
+
+- &x → endereço onde x está armazenada
+- `var y *int = &x ` → cria um ponteiro que guarda o endereço de x
+- `*y ` → acessa o valor que está naquele endereço
+
+<img src="./.github/workflows/pointers.jpg" />
+
+- A partir do ponteiro é possível alterar o valor da variável por referência
+
+```go
+package main
+
+type Pessoa struct {
+	Nome string
+}
+
+func main() {
+	// ponteiros
+	var p1 Pessoa = Pessoa{ Nome: "Yaba" }
+	var p2 Pessoa = Pessoa{ Nome: "Ernesto" }
+
+	var p3 *Pessoa = &p1
+	// valor de p1 será alterado por referência (&)
+	p3.Nome = "Manuel"
+
+	fmt.Println(&p1.Nome)
+	fmt.Println(&p3.Nome)
+}
+```

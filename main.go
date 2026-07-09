@@ -8,6 +8,10 @@ import (
 	"github.com/yabaernesto/curso-go/structs"
 )
 
+type Pessoa struct {
+	Nome string
+}
+
 func main() {
 	structs.Estrutura()
 	response := functions.Soma(10, 15)
@@ -26,4 +30,12 @@ func main() {
   p2 := methods.Pessoa{Nome: "Ernesto", Idade: 25}
 	p1.Apresentar()
   p2.Apresentar()
+
+	var point1 Pessoa = Pessoa{ Nome: "Yaba" }
+	
+	// ponteiros
+	var point2 *Pessoa = &point1
+	// endereco na memoria
+	fmt.Println(&point1.Nome)
+	fmt.Println(&point2.Nome)
 }
